@@ -1,4 +1,4 @@
-package com.springreact.springBootReact.model.entity;
+package com.springreact.springBootReact.model.enums;
 
 public enum StatusLancamento {
 
