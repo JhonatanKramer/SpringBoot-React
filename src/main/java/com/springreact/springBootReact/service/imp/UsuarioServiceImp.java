@@ -2,6 +2,7 @@ package com.springreact.springBootReact.service.imp;
 
 import org.springframework.stereotype.Service;
 
+import com.springreact.springBootReact.exception.RegraNegocioException;
 import com.springreact.springBootReact.model.entity.Usuario;
 import com.springreact.springBootReact.model.repository.UsuarioRepository;
 import com.springreact.springBootReact.service.UsuarioService;
@@ -30,7 +31,10 @@ public class UsuarioServiceImp implements UsuarioService {
 
 	@Override
 	public void validarEmail(String email) {
-		// TODO Auto-generated method stub
+		boolean existe = repository.existsByEmail(email);
+		if(existe) {
+			throw new RegraNegocioException("Já existe um usuario cadastrado com este email."); 
+		}
 		
 	}
 
