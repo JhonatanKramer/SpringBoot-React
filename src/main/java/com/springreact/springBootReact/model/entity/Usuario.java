@@ -7,31 +7,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-// Reconhece o JPA como mapeamento de uma entidade
-@Entity 
-//Definição e tabela
-@Table (name = "usuario", schema =  "financas")
-//@Setter // propriedade do Lombak que substitui o SET
-//@Getter // propriedade do Lombak que substitui o GET
-//@EqualsAndHashCode // propriedade do Lombak que substitui o HASHCODE
-//@ToString // propriedade do Lombak que substitui o TOSTRING
-//@NoArgsConstructor // construtor sem os argumentos
-//@AllArgsConstructor // construtor com todas os argumentos
-@Data // substitui todas as prorpiedades anteriores
+@Entity
+@Table( name = "usuario" , schema = "financas")
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
 
-	//Colocar variavel como id
 	@Id
-	@Column(name = "id") // set name table 
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // set value generate automatic
+	@Column(name = "id")
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long id;
 	
-	@Column(name = "nome")	
+	@Column(name = "nome")
 	private String nome;
 	
 	@Column(name = "email")
@@ -40,5 +36,5 @@ public class Usuario {
 	@Column(name = "senha")
 	private String senha;
 
-	
+
 }
