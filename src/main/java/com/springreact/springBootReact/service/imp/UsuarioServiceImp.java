@@ -2,7 +2,6 @@ package com.springreact.springBootReact.service.imp;
 
 import java.util.Optional;
 
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +21,7 @@ public class UsuarioServiceImp implements UsuarioService {
 		this.repository = repository;
 	}
 
+	
 	@Override
 	public Usuario autenticar(String email, String senha) {
 		Optional<Usuario> usuario =  repository.findByEmail(email);
