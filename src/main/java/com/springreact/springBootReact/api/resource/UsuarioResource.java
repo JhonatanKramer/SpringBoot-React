@@ -15,8 +15,11 @@ import com.springreact.springBootReact.exception.RegraNegocioException;
 import com.springreact.springBootReact.model.entity.Usuario;
 import com.springreact.springBootReact.service.UsuarioService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/api/usuarios") // todas requisições /api/usuario entra nesta classe
+@RequiredArgsConstructor
 public class UsuarioResource {
 
 	// Quando acessar a URL (/) chama o metodo.
@@ -25,11 +28,7 @@ public class UsuarioResource {
 //		 return "Hello Word!";
 //	}
 
-	private UsuarioService service;
-
-	public UsuarioResource(UsuarioService service) {
-		this.service = service;
-	}
+	private final UsuarioService service;
 
 	@PostMapping("/autenticar")
 	public ResponseEntity autenticar(@RequestBody UsuarioDTO dto) {

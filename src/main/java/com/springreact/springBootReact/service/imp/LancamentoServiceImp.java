@@ -3,6 +3,7 @@ package com.springreact.springBootReact.service.imp;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -101,6 +102,12 @@ public class LancamentoServiceImp implements LancamentoService {
 		if (lancamento.getTipo() == null) {
 			throw new RegraNegocioException("Informe um tipo Valido.");
 		}
+	}
+
+	@Override
+	public Optional<Lancamento> obterPorId(Long id) {
+		
+		return lancamentoRepository.findById(id);
 	}
 
 }
